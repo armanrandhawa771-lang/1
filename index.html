@@ -1,0 +1,615 @@
+# Ultimate Romantic Cinematic Website For Ginna
+
+Save this as `index.html`
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Ginna ❤️</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+overflow:hidden;
+background:black;
+font-family:'Poppins',sans-serif;
+color:white;
+}
+
+.page{
+position:absolute;
+width:100%;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+background-size:cover;
+background-position:center;
+transition:1.4s ease;
+overflow:hidden;
+}
+
+.hidden{
+opacity:0;
+pointer-events:none;
+transform:scale(1.08);
+}
+
+.overlay{
+position:absolute;
+inset:0;
+background:rgba(0,0,0,0.52);
+backdrop-filter:blur(4px);
+}
+
+.content{
+position:relative;
+z-index:2;
+max-width:900px;
+animation:fadeUp 1.5s ease;
+}
+
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(40px);
+}
+
+to{
+opacity:1;
+transform:translateY(0px);
+}
+}
+
+h1{
+font-family:'Cormorant Garamond',serif;
+font-size:78px;
+font-weight:600;
+margin-bottom:20px;
+letter-spacing:2px;
+text-shadow:0 0 30px rgba(255,255,255,0.3);
+}
+
+p{
+font-size:22px;
+line-height:1.9;
+font-weight:300;
+}
+
+.animals{
+font-size:95px;
+margin-bottom:25px;
+animation:float 4s infinite ease-in-out;
+}
+
+@keyframes float{
+0%{transform:translateY(0px)}
+50%{transform:translateY(-14px)}
+100%{transform:translateY(0px)}
+}
+
+.btn{
+padding:16px 38px;
+margin:14px;
+border:none;
+border-radius:60px;
+font-size:17px;
+letter-spacing:1px;
+cursor:pointer;
+background:rgba(255,255,255,0.14);
+color:white;
+backdrop-filter:blur(10px);
+transition:0.45s;
+box-shadow:0 0 25px rgba(255,255,255,0.15);
+}
+
+.btn:hover{
+transform:scale(1.08);
+background:white;
+color:black;
+box-shadow:0 0 35px rgba(255,255,255,0.4);
+}
+
+.hearts{
+position:absolute;
+width:100%;
+height:100%;
+overflow:hidden;
+z-index:1;
+}
+
+.hearts span{
+position:absolute;
+font-size:18px;
+animation:floatHeart linear infinite;
+}
+
+@keyframes floatHeart{
+0%{
+transform:translateY(100vh) scale(0.5);
+opacity:0;
+}
+50%{
+opacity:1;
+}
+100%{
+transform:translateY(-120vh) scale(1.4);
+opacity:0;
+}
+}
+
+.typewriter{
+overflow:hidden;
+white-space:nowrap;
+border-right:2px solid white;
+width:0;
+margin:auto;
+animation:typing 4s steps(40,end) forwards,
+blink .8s infinite;
+}
+
+@keyframes typing{
+from{width:0}
+to{width:100%}
+}
+
+@keyframes blink{
+50%{border-color:transparent}
+}
+
+.drink-wrap{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+margin-top:20px;
+}
+
+.drink-card{
+width:260px;
+height:340px;
+margin:15px;
+border-radius:30px;
+overflow:hidden;
+position:relative;
+transition:0.5s;
+box-shadow:0 0 30px rgba(255,255,255,0.15);
+}
+
+.drink-card:hover{
+transform:translateY(-12px) scale(1.03);
+}
+
+.drink-card img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.drink-text{
+position:absolute;
+bottom:0;
+width:100%;
+padding:18px;
+background:linear-gradient(transparent,rgba(0,0,0,0.9));
+font-size:22px;
+}
+
+.final-text{
+font-size:34px;
+line-height:2;
+color:#ffe7a8;
+text-shadow:0 0 20px rgba(255,215,0,0.35);
+}
+
+.small-line{
+margin-top:30px;
+font-size:18px;
+opacity:0.85;
+}
+
+.loading{
+font-size:22px;
+margin-top:20px;
+opacity:0.8;
+animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+0%{opacity:0.4}
+50%{opacity:1}
+100%{opacity:0.4}
+}
+
+.lily{
+font-size:65px;
+margin-bottom:20px;
+}
+
+\.stars{
+position:absolute;
+width:100%;
+height:100%;
+overflow:hidden;
+z-index:1;
+}
+
+.stars span{
+position:absolute;
+width:2px;
+height:2px;
+background:white;
+border-radius:50%;
+animation:twinkle 3s infinite ease-in-out;
+}
+
+@keyframes twinkle{
+0%{opacity:0.2}
+50%{opacity:1}
+100%{opacity:0.2}
+}
+
+.cursor-glow{
+position:fixed;
+width:18px;
+height:18px;
+background:rgba(255,255,255,0.5);
+border-radius:50%;
+pointer-events:none;
+backdrop-filter:blur(3px);
+box-shadow:0 0 20px rgba(255,255,255,0.6);
+z-index:9999;
+transform:translate(-50%,-50%);
+}
+
+\.music-bar{
+position:absolute;
+top:25px;
+right:25px;
+z-index:20;
+display:flex;
+gap:4px;
+align-items:flex-end;
+height:24px;
+}
+
+.music-bar span{
+width:4px;
+background:white;
+border-radius:10px;
+animation:musicWave 1s infinite ease-in-out;
+}
+
+.music-bar span:nth-child(2){animation-delay:0.2s}
+.music-bar span:nth-child(3){animation-delay:0.4s}
+.music-bar span:nth-child(4){animation-delay:0.6s}
+
+@keyframes musicWave{
+0%{height:6px}
+50%{height:24px}
+100%{height:6px}
+}
+
+.road-light{
+position:absolute;
+width:180px;
+height:180px;
+background:radial-gradient(circle,rgba(255,215,120,0.18),transparent 70%);
+border-radius:50%;
+filter:blur(10px);
+animation:moveLight 8s linear infinite;
+}
+
+@keyframes moveLight{
+0%{transform:translateX(-20vw)}
+100%{transform:translateX(120vw)}
+}
+
+.memory-note{
+margin-top:28px;
+font-size:18px;
+opacity:0.85;
+letter-spacing:1px;
+}
+
+.quote-box{
+margin-top:35px;
+padding:18px 25px;
+border-radius:24px;
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(8px);
+font-size:18px;
+line-height:1.8;
+box-shadow:0 0 25px rgba(255,255,255,0.08);
+}
+
+@media(max-width:768px){
+
+h1{
+font-size:48px;
+}
+
+p{
+font-size:18px;
+}
+
+.animals{
+font-size:70px;
+}
+
+.drink-card{
+width:170px;
+height:240px;
+}
+
+.final-text{
+font-size:25px;
+}
+
+.typewriter{
+white-space:normal;
+width:100%;
+border-right:none;
+animation:none;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<audio id="music" loop>
+<source src="song.mp3" type="audio/mp3">
+</audio>
+
+<div class="hearts" id="hearts"></div>
+
+<div class="music-bar">
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+</div>
+
+<div class="road-light"></div>
+<div class="stars" id="stars"></div>
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- PAGE 1 -->
+<section class="page" id="page1" style="background-image:url('https://images.unsplash.com/photo-1511300636408-a63a89df3482?q=80&w=1974&auto=format&fit=crop');">
+<div class="overlay"></div>
+<div class="content">
+<div class="animals">🐻‍❄️ 🐼</div>
+<h1>Hey Ginna...</h1>
+<p class="typewriter">
+Your mood feels a little off today 🥺
+</p>
+<br><br>
+<button class="btn" onclick="startExperience()">YES 😔</button>
+<button class="btn" onclick="startExperience()">NO 😌</button>
+</div>
+</section>
+
+<!-- PAGE 2 -->
+<section class="page hidden" id="page2" style="background-image:url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1974&auto=format&fit=crop');">
+<div class="overlay"></div>
+<div class="content">
+<div class="animals">🐱✨</div>
+<h1>Comfort Therapy</h1>
+<p>
+I know one thing though...<br>
+A pretty girl should never stay sad for too long 🌙
+</p>
+
+<div class="drink-wrap">
+
+<div class="drink-card">
+<img src="https://images.unsplash.com/photo-1515823064-d6e0c04616a7?q=80&w=1200&auto=format&fit=crop">
+<div class="drink-text">🍵 Matcha</div>
+</div>
+
+<div class="drink-card">
+<img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1fcef?q=80&w=1200&auto=format&fit=crop">
+<div class="drink-text">🧋 Hazelnut Latte</div>
+</div>
+
+</div>
+
+<button class="btn" onclick="nextPage(2,3)">
+YES PLEASE ❤️
+</button>
+
+</div>
+</section>
+
+<!-- PAGE 3 -->
+<section class="page hidden" id="page3" style="background-image:url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1974&auto=format&fit=crop');">
+<div class="overlay"></div>
+<div class="content">
+<div class="animals">🚗🌧️</div>
+<h1>Your Creta Is Waiting</h1>
+<p>
+Late night drive?<br>
+Soft music?<br>
+City lights?<br>
+And maybe... me?
+</p>
+
+<div class="memory-note">
+The city looks prettier when you're in the passenger seat ✨
+</div>
+
+<p>
+</p>
+
+<button class="btn" onclick="nextPage(3,4)">
+LET'S GO 🌙
+</button>
+
+<button class="btn" onclick="nextPage(3,4)">
+ONLY IF YOU DRIVE 😌
+</button>
+
+</div>
+</section>
+
+<!-- PAGE 4 -->
+<section class="page hidden" id="page4" style="background-image:url('https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=1935&auto=format&fit=crop');">
+<div class="overlay"></div>
+<div class="content">
+<div class="animals">🐶💛</div>
+<h1>Emergency Happiness Delivery</h1>
+<p>
+Golden retriever energy activated ✨
+</p>
+
+<button class="btn" onclick="nextPage(4,5)">
+🍵 Matcha Tea
+</button>
+
+<button class="btn" onclick="nextPage(4,5)">
+🧋 Hazelnut Iced Latte
+</button>
+
+</div>
+</section>
+
+<!-- PAGE 5 -->
+<section class="page hidden" id="page5" style="background-image:url('https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1974&auto=format&fit=crop');">
+<div class="overlay"></div>
+<div class="content">
+<div class="lily">🌸🤍🌸</div>
+<h1>One Last Thing...</h1>
+
+<p class="final-text">
+Call me.<br>
+I'm waiting.<br><br>
+Not because I'm bored...<br>
+Because your voice feels like home ❤️
+</p>
+
+<br>
+
+<button class="btn" onclick="window.open('tel:+918288931872')">
+📞 CALL ME
+</button>
+
+<p class="small-line">
+Your passenger princess seat is reserved 🚗✨
+</p>
+
+<div class="loading">Preparing one emotionally attached boy...</div>
+
+<div class="quote-box">
+"Even bad days feel softer when they end with you." ✨
+<br><br>
+🌸 lilies, night drives, soft songs & you
+</div>
+
+</div>
+</section>
+
+<script>
+
+function startExperience(){
+const music=document.getElementById('music');
+music.play();
+nextPage(1,2);
+}
+
+function nextPage(current,next){
+
+document.getElementById('page'+current)
+.classList.add('hidden');
+
+document.getElementById('page'+next)
+.classList.remove('hidden');
+
+}
+
+const hearts=document.getElementById('hearts');
+
+for(let i=0;i<55;i++){
+
+let span=document.createElement('span');
+
+span.innerHTML='❤️';
+
+span.style.left=Math.random()*100+'vw';
+
+span.style.animationDuration=(Math.random()*10+5)+'s';
+
+span.style.fontSize=(Math.random()*20+10)+'px';
+
+span.style.opacity=Math.random();
+
+hearts.appendChild(span);
+
+}
+
+const stars=document.getElementById('stars');
+
+for(let i=0;i<90;i++){
+
+let star=document.createElement('span');
+
+star.style.left=Math.random()*100+'vw';
+star.style.top=Math.random()*100+'vh';
+star.style.animationDuration=(Math.random()*4+2)+'s';
+
+stars.appendChild(star);
+
+}
+
+const glow=document.getElementById('cursorGlow');
+
+document.addEventListener('mousemove',(e)=>{
+
+glow.style.left=e.clientX+'px';
+glow.style.top=e.clientY+'px';
+
+});
+
+</script>
+
+</body>
+</html>
+```
+
+Upload this with:
+
+```text
+song.mp3
+```
+
+inside the same GitHub repository.
+
+Best song style:
+
+* Punjabi romantic lofi
+* soft night drive vibe
+* slow emotional instrumental
+
+Recommended aesthetic photos you can replace later:
+
+* her favorite lilies 🌸
+* night drive photo
+* your Creta interior
+* cafe drinks
+* one cute candid picture
